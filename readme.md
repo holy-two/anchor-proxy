@@ -1,0 +1,3 @@
+# AnchorProxy
+
+通过WebComponent封装一个对所有超链接进行代理事件拦截的功能
