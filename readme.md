@@ -38,3 +38,23 @@ ap.addEventListener('anchor-click',e=>{
   <a href="/">链接</a>
 </anchor-proxy>
 ```
+
+### 创建过滤列表
+
+```typescript
+// js/ts
+const ap = document.createElement('anchor-proxy')
+
+ap.proxyFilters = [
+  (href,target) => !target.hasAttribute('data-proxy-disabled'),
+]
+```
+
+```html
+<!-- html -->
+<anchor-proxy>
+  <!-- 其他的标签省略 -->
+  <a href="/">链接</a>
+  <a href="/" data-proxy-disabled>禁用链接</a>
+</anchor-proxy>
+```
