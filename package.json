@@ -20,12 +20,12 @@
     "publish": "pnpm build && npm publish"
   },
   "dependencies": {
-    "lit": "^3.1.2"
+    "lit": "^3.1.4"
   },
   "devDependencies": {
-    "@types/node": "^20.11.24",
-    "typescript": "^5.2.2",
-    "vite": "^5.1.4",
-    "vite-plugin-dts": "^3.7.3"
+    "@types/node": "^20.14.10",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3",
+    "vite-plugin-dts": "^3.9.1"
   }
 }
