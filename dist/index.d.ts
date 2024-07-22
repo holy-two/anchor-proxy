@@ -1,10 +1,15 @@
+import * as lit from 'lit';
 import { LitElement } from 'lit';
-import { ProxyFilter } from './core';
-export interface AnchorClickEventDetail {
+
+interface ProxyFilter {
+    (href: string, target: HTMLElement): boolean;
+}
+
+interface AnchorClickEventDetail {
     href: string;
     target: HTMLElement;
 }
-export declare class AnchorClickEvent extends CustomEvent<AnchorClickEventDetail> {
+declare class AnchorClickEvent extends CustomEvent<AnchorClickEventDetail> {
     constructor(href: string, target: HTMLElement);
 }
 /**
@@ -12,10 +17,10 @@ export declare class AnchorClickEvent extends CustomEvent<AnchorClickEventDetail
  *
  * @slot - This element has a slot
  */
-export declare class AnchorProxy extends LitElement {
+declare class AnchorProxy extends LitElement {
     proxyFilters: ProxyFilter[];
     constructor();
-    render(): import("lit").TemplateResult<1>;
+    render(): lit.TemplateResult<1>;
 }
 declare global {
     interface HTMLElementTagNameMap {
@@ -25,3 +30,5 @@ declare global {
         'anchor-click': AnchorClickEvent;
     }
 }
+
+export { AnchorClickEvent, type AnchorClickEventDetail, AnchorProxy };

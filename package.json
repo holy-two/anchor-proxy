@@ -1,31 +1,21 @@
 {
-  "name": "anchorproxy",
+  "name": "anchor-proxy",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/anchor-proxy.umd.cjs",
-  "module": "./dist/anchor-proxy.js",
-  "exports": {
-    ".": {
-      "import": "./dist/anchor-proxy.js",
-      "require": "./dist/anchor-proxy.umd.cjs"
-    }
-  },
+  "main": "./dist/index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "publish": "pnpm build && npm publish"
+    "build": "tsup"
   },
   "dependencies": {
     "lit": "^3.1.4"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.3",
-    "vite-plugin-dts": "^3.9.1"
+    "tsup": "^8.2.1",
+    "typescript": "^5.5.3"
   }
 }
