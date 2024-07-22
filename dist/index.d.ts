@@ -12,11 +12,6 @@ interface AnchorClickEventDetail {
 declare class AnchorClickEvent extends CustomEvent<AnchorClickEventDetail> {
     constructor(href: string, target: HTMLElement);
 }
-/**
- * An example element.
- *
- * @slot - This element has a slot
- */
 declare class AnchorProxy extends LitElement {
     proxyFilters: ProxyFilter[];
     constructor();
@@ -24,10 +19,10 @@ declare class AnchorProxy extends LitElement {
 }
 declare global {
     interface HTMLElementTagNameMap {
-        'anchor-proxy': AnchorProxy;
+        "anchor-proxy": AnchorProxy;
     }
     interface HTMLElementEventMap {
-        'anchor-click': AnchorClickEvent;
+        "anchor-click": AnchorClickEvent;
     }
 }
 

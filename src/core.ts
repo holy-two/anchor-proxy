@@ -11,7 +11,7 @@ export function proxyEvent<T extends EventTarget>(
     let link = e.target
 
     if (link instanceof Element) {
-      link = link.closest('a,area')
+      link = link.closest("a,area")
     }
 
     if (
@@ -22,17 +22,15 @@ export function proxyEvent<T extends EventTarget>(
       return
     }
 
-    const linkTarget = link instanceof HTMLElement
-      ? link.target
-      : link.href.baseVal
+    const linkTarget =
+      link instanceof HTMLElement ? link.target : link.href.baseVal
 
-    const href = link instanceof HTMLElement
-      ? link.href
-      : link.href.baseVal
+    const href = link instanceof HTMLElement ? link.href : link.href.baseVal
 
-    if (link.hasAttribute('download') ||
+    if (
+      link.hasAttribute("download") ||
       !link.href ||
-      (linkTarget && linkTarget !== '_self') ||
+      (linkTarget && linkTarget !== "_self") ||
       origin !== location.origin ||
       e.button !== 0 || // left clicks only
       e.metaKey || // new tab (mac)
@@ -40,18 +38,18 @@ export function proxyEvent<T extends EventTarget>(
       e.altKey || // download
       e.shiftKey || // new window
       e.defaultPrevented ||
-      customFilters().some(filter => !filter(href, link as HTMLElement))) {
+      customFilters().some(filter => !filter(href, link as HTMLElement))
+    ) {
       return
     }
 
     e.preventDefault()
     proxyCallback(href, link as HTMLElement)
-
   }) as EventListenerOrEventListenerObject
 
-  target.addEventListener('click', eventHandler)
+  target.addEventListener("click", eventHandler)
 
   return () => {
-    target.removeEventListener('click', eventHandler)
+    target.removeEventListener("click", eventHandler)
   }
 }

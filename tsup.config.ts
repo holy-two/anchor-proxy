@@ -2,11 +2,8 @@ import { defineConfig } from "tsup"
 
 export default defineConfig({
   entry: ["src/index.ts"],
+  target: "esnext",
   format: "esm",
-  dts: {
-    entry: "src/index.ts",
-    compilerOptions: {
-      composite: false,
-    },
-  },
+  dts: true,
+  clean: true,
 })

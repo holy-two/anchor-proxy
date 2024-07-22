@@ -8,7 +8,8 @@
   ],
   "main": "./dist/index.js",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "preview": "start http://127.0.0.1:8000/example/ && python -m http.server"
   },
   "dependencies": {
     "lit": "^3.1.4"

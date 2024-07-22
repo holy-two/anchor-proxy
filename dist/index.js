@@ -57,14 +57,16 @@ var AnchorProxy = class extends LitElement {
   constructor() {
     super();
     this.proxyFilters = [];
-    proxyEvent(this, (href, target) => {
-      this.dispatchEvent(new AnchorClickEvent(href, target));
-    }, () => this.proxyFilters);
+    proxyEvent(
+      this,
+      (href, target) => {
+        this.dispatchEvent(new AnchorClickEvent(href, target));
+      },
+      () => this.proxyFilters
+    );
   }
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 };
 __decorateClass([
