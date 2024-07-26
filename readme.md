@@ -2,6 +2,12 @@
 
 透過 WebComponent 封裝的一個對所有的 `a` 標簽進行代理事件及攔截的功能
 
+## 安裝
+
+```bash
+pnpm i @holy-two/anchor-proxy
+```
+
 ## 基本
 
 ```html
