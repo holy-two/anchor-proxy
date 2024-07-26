@@ -1,0 +1,10 @@
+anchor-proxy {
+  display: flex;
+  gap: 0.5em;
+}
+
+anchor-proxy a:where([data-current]) {
+  pointer-events: none;
+  color: red;
+  text-decoration: none;
+}
