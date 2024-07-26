@@ -1,60 +1,39 @@
-# AnchorProxy
+# @holy-two/anchor-proxy
 
-通过WebComponent封装一个对所有超链接进行代理事件拦截的功能
+透過 WebComponent 封裝的一個對所有的 `a` 標簽進行代理事件及攔截的功能
 
-## 用法
+## 基本
 
-### 通过js/ts引入
-
-```typescript
-import  "anchorproxy"
-
-const ap = document.createElement('anchor-proxy')
-
-const anchor = document.createElement('a')
-
-anchor.href = 'https://github.com'
-
-anchor.innerHTML = "github"
-
-ap.appendChild(anchor)
-
-document.querySelector('#app')!.appendChild(ap)
-
-ap.addEventListener('anchor-click',e=>{
-  console.log(e.detail)
-})
-```
-
-### 通过html引入
 ```html
-<!-- 在head里 -->
-<script src="./dist/anchor-proxy.js"></script>
+<script type="module">
+  import "@holy-two/anchor-proxy"
+</script>
 
-
-<!-- 在body里 -->
 <anchor-proxy>
-  <!-- 其他的标签省略 -->
-  <a href="/">链接</a>
+  <a href="/">主頁</a>
 </anchor-proxy>
+
+<script type="module">
+  const ap = document.createElement("anchor-proxy")
+
+  ap.addEventListener("anchor-click", e => {
+    console.log(e.detail)
+  })
+</script>
 ```
 
-### 创建过滤列表
-
-```typescript
-// js/ts
-const ap = document.createElement('anchor-proxy')
-
-ap.proxyFilters = [
-  (href,target) => !target.hasAttribute('data-proxy-disabled'),
-]
-```
+### 例外
 
 ```html
-<!-- html -->
+<script type="module">
+  const ap = document.createElement("anchor-proxy")
+
+  ap.proxyFilters = [
+    (href, target) => !target.hasAttribute("data-proxy-disabled"),
+  ]
+</script>
 <anchor-proxy>
-  <!-- 其他的标签省略 -->
-  <a href="/">链接</a>
-  <a href="/" data-proxy-disabled>禁用链接</a>
+  <a href="/">主頁</a>
+  <a href="/admin" data-proxy-disabled>後臺</a>
 </anchor-proxy>
 ```
