@@ -25,6 +25,11 @@
 ### 例外
 
 ```html
+<anchor-proxy>
+  <a href="/">主頁</a>
+  <a href="/admin" data-proxy-disabled>後臺</a>
+</anchor-proxy>
+
 <script type="module">
   const ap = document.createElement("anchor-proxy")
 
@@ -32,8 +37,4 @@
     (href, target) => !target.hasAttribute("data-proxy-disabled"),
   ]
 </script>
-<anchor-proxy>
-  <a href="/">主頁</a>
-  <a href="/admin" data-proxy-disabled>後臺</a>
-</anchor-proxy>
 ```
