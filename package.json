@@ -1,7 +1,7 @@
 {
   "name": "@holy-two/anchor-proxy",
-  "description": "透過 WebComponent 對所有的 a 標簽進行代理事件及攔截",
-  "version": "0.0.2",
+  "description": "透过WebComponent对所有的a标签进行代理事件及拦截",
+  "version": "0.0.1",
   "type": "module",
   "files": [
     "dist"
